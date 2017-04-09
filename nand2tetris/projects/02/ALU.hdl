@@ -42,5 +42,32 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+    //其实Mux函数就是一个if函数，不同的地方在于，判断条件是sel是否为0，为0则输入前一个，不为0则输出后一个
+    //zx和nx
+    Mux16(a =x, b = false, sel = zx, out = tmp1);
+    Not16(in = tmp1, out = tmp2);
+    Mux16(a = tmp1, b = tmp2, sel = nx, out = tmp3);
+
+    //zy和ny
+    Mux16(a =y, b = false, sel = zy, out = tmp4);
+    Not16(in = tmp4, out = tmp5);
+    Mux16(a = tmp4, b = tmp5, sel = ny, out = tmp6);
+
+    //f
+    Add16(a = tmp3, b = tmp6, out = tmp7);
+    And16(a = tmp3, b = tmp6, out = tmp8);
+    Mux16(a = tmp8, b = tmp7, sel = f, out = tmp9);
+
+    //no
+    Not16(in = tmp9, out = tmp10);
+    Mux16(a = tmp9, b = tmp10,sel = no, out = outtmp);
+
+    //out和ng,注意想取片段只能在out输出时取
+    Or16(a = outtmp, b = false, out[15] = ng,out[0..7] = tmp11,out[8..15] = tmp12, out = out);
+
+    //zr
+    Or8Way(in = tmp11, out = tmp13);
+    Or8Way(in = tmp12, out = tmp14);
+    Or(a = tmp13, b = tmp14, out = tmp15);
+    Not(in = tmp15, out = zr);
 }
