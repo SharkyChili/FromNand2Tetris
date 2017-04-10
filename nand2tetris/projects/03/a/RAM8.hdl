@@ -15,5 +15,19 @@ CHIP RAM8 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    //先将load转换为 0,0,0,1,0,0,0,0的格式
+    DMux8Way(in = load , sel = address, a=a, b=b, c=c, d=d, e=e, f=f, g=g, h=h);
+
+    //然后分别用load转换后的格式去运行register
+    Register(in = in , load = a, out = a1);
+    Register(in = in , load = b, out = b1);
+    Register(in = in , load = c, out = c1);
+    Register(in = in , load = d, out = d1);
+    Register(in = in , load = e, out = e1);
+    Register(in = in , load = f, out = f1);
+    Register(in = in , load = g, out = g1);
+    Register(in = in , load = h, out = h1);
+
+    //将得到的结果[16],[16],[16],[16],[16],[16],[16],[16]配合0,0,0,1,0,0,0,0(这里address不需要拆解开，所以直接用address)取出真正有用的[16]
+    Mux8Way16(a=a1,b=b1,c=c1,d=d1,e=e1,f=f1,g=g1,h=h1,sel = address, out = out);
 }
