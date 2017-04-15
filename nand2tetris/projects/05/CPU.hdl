@@ -39,5 +39,43 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    //---------------------------------------------------------------------------------------------------
+    Mux16(a = instruction, b = outAD,sel = instruction[15], out = inA);
+    //第一个判断条件肯定是[15],因为如果是一个[5]位恰好为1的A指令，那么进入的是ALU的输出，显然不对
+    //第二个条件，检查ARegister的情况，应该是为A指令时，都输入，为C指令且ALU输出到A时，输入，如图
+    //             [15]         [5]         输入A
+    //              0            0             1
+    //              0            1             1
+    //              1            0             0
+    //              1            1             1
+    //那么我们取   （非[15]）或[5] 即可达成
+    Not(in = instruction[15],out = not15);
+    Or(a = not15, b = instruction[5],out = ARegisterload);
+    ARegister(in = inA ,load = ARegisterload ,out[0..14] = addressM,out = inMUXA);
+    Mux16(a = inMUXA, b = inM, sel = instruction[12], out = inALUAM);
+    //----------------------------------------------------------------------------------------------------    
+
+    //仅有当为C指令，且[4] = 1时，才load
+    And(a = instruction[15],b = instruction[4], out = loadD);
+    DRegister(in = outAD ,load = loadD ,out = inALUD);
+    ALU(x= inALUD,y= inALUAM,zx=instruction[11] ,nx=instruction[10] ,zy=instruction[9] ,ny=instruction[8],f=instruction[7] ,no=instruction[6] ,out = outAD,out=outM ,zr=zr ,ng=ng);
+    //-------------------------------------------------------------------------------------------------------
+
+    //只有当ng和zr都为0时，才大于0，  不是简单的notng
+    Not(in = ng , out = notng);
+    Not(in = zr , out = notzr);
+    And(a = notng, b = notzr , out = postive);
+    //然后三次and再or，也就是，指令开了几道门，随便从哪一道都可以
+    And(a = instruction[2], b = ng, out = tmp1);
+    And(a = instruction[1], b = zr, out = tmp2);
+    And(a = instruction[0], b = postive, out = tmp3);
+    Or(a = tmp1,b = tmp2, out = tmp4);
+    Or(a = tmp4,b = tmp3, out = tmp5);
+    //只有当为C指令时才跳
+    And(a = tmp5,b = instruction[15],out = pcload);
+    PC(in= inMUXA,load=pcload ,inc=true ,reset= reset,out[0..14]= pc);
+
+    //--------------------------------------------------------------------------------------------------------
+    And(a = instruction[15],b = instruction[3],out = writeM);
+    
 }
