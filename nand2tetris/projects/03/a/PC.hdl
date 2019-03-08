@@ -16,16 +16,5 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    
-    //简单来说，认为DFF会在  n+的时候卡住，而在n+1时完成平衡
-
-    Inc16(in = tmp1, out = tmp2);
-    Mux16(a = tmp1, b = tmp2, sel = inc , out = tmp3);
-    
-    Mux16(a = tmp3, b = in, sel = load , out = tmp4);
-    
-    Mux16(a = tmp4, b = false, sel = reset, out = tmp5);
-   
-    //本题中的out(t) = out(t-1)不是靠的读取内存，而是参数均为0时的传递效果
-    Register(in = tmp5,  load = true,  out = tmp1, out = out);
+    // Put your code here:
 }

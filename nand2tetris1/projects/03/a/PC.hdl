@@ -1,0 +1,31 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/PC.hdl
+
+/**
+ * A 16-bit counter with load and reset control bits.
+ * if      (reset[t] == 1) out[t+1] = 0
+ * else if (load[t] == 1)  out[t+1] = in[t]
+ * else if (inc[t] == 1)   out[t+1] = out[t] + 1  (integer addition)
+ * else                    out[t+1] = out[t]
+ */
+
+CHIP PC {
+    IN in[16],load,inc,reset;
+    OUT out[16];
+
+    PARTS:
+    
+    //简单来说，认为DFF会在  n+的时候卡住，而在n+1时完成平衡
+
+    Inc16(in = tmp1, out = tmp2);
+    Mux16(a = tmp1, b = tmp2, sel = inc , out = tmp3);
+    
+    Mux16(a = tmp3, b = in, sel = load , out = tmp4);
+    
+    Mux16(a = tmp4, b = false, sel = reset, out = tmp5);
+   
+    //本题中的out(t) = out(t-1)不是靠的读取内存，而是参数均为0时的传递效果
+    Register(in = tmp5,  load = true,  out = tmp1, out = out);
+}

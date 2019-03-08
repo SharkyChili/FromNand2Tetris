@@ -27,15 +27,5 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    DMux(in = load, sel = address[14], a = a1, b = b1);
-
-    RAM16K(in = in, load = a1, address = address[0..13], out = a2);
-    Screen(in = in, load = b1, address = address[0..12], out = b2);
-    Mux16(a = a2, b = b2, sel = address[14], out = tmp);
-
-    Keyboard(out[0..7] = tmp1, out[8..15] = tmp2 , out= c2);
-    Or8Way(in = tmp1,out = tmp3);
-    Or8Way(in = tmp2,out = tmp4);
-    Or(a = tmp3, b = tmp4, out = tmp5);
-    Mux16(a = tmp, b = c2, sel = tmp5, out = out);
+    // Put your code here:
 }

@@ -15,36 +15,5 @@ CHIP RAM64 {
     OUT out[16];
 
     PARTS:
-    //------------------------------------------------------------------------------------
-    //思路，将64个分为8组，而每组的编号为address的前三位
-    //那么就可以将load先分到组里去，（然后在子程序里分配到对应的地址）
-    //然后进行写入或读取操作
-    //返回得到的值
-    //---------------------------------------------------------------------------------------
-    //注意
-    //如果load = 1，那么将load分到组里去的时候，即0,0,0,1,0,0,0,0，然后其他组细分变为全0，第四组继续细分，变为类似0,0,0,0,0,0,0,1的形式
-    //也就是只在一个地址上load=1，即改变一个地址的数值
-    //如果load = 0，那更好办了，所有load=0，也就是不改变任何地址的数值
-    //-----------------------------------------------------------------------------------------
-    //返回值呢？
-    //将8个组里每一个对应address[0..2]的地址的数值收集起来，然后通过address[3..5]再在其中拿出需要的值
-
-
-
-    //先将load转换为八个组中load对应的值
-    DMux8Way(in = load , sel = address[3..5], a=a1, b=b1, c=c1, d=d1, e=e1, f=f1, g=g1, h=h1);
-
-    //然后在子程序中，将各自的load转换成八个地址对应的值，对每个地址都有且仅有一次register操作，所以不要担心问题变得复杂化
-    //同时，返回八组中输入（即写入）或者上一状态（即读取）的数值
-    RAM8(in = in, load =a1  , address = address[0..2], out = a2);
-    RAM8(in = in, load =b1  , address = address[0..2], out = b2);
-    RAM8(in = in, load =c1  , address = address[0..2], out = c2);
-    RAM8(in = in, load =d1  , address = address[0..2], out = d2);
-    RAM8(in = in, load =e1  , address = address[0..2], out = e2);
-    RAM8(in = in, load =f1  , address = address[0..2], out = f2);
-    RAM8(in = in, load =g1  , address = address[0..2], out = g2);
-    RAM8(in = in, load =h1  , address = address[0..2], out = h2);
-
-    //将八组得到的数值汇总，通过address[3..5]来觉得要返回的值
-    Mux8Way16(a=a2,b=b2,c=c2,d=d2,e=e2,f=f2,g=g2,h=h2,sel = address[3..5], out = out);
+    // Put your code here:
 }
