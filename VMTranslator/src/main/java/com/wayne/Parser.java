@@ -46,8 +46,23 @@ public class Parser {
         }
     }
 
+    private boolean preHandleLine(){
+        line = line.trim();
+        if(line.startsWith("//")){
+            return false;
+        }
+        if(line.equals("")){
+            return false;
+        }
+        return true;
+    }
+
     public void advance(){
         //todo 根据line解析出东西
+        //预处理一下line
+        if(preHandleLine()){
+
+        }
 
     }
 }
