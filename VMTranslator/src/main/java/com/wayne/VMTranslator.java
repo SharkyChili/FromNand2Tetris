@@ -4,7 +4,8 @@ import java.io.*;
 
 public class VMTranslator {
     public static void main(String[] args) {
-        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\StackArithmetic\\SimpleAdd\\SimpleAdd.vm";
+//        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\StackArithmetic\\SimpleAdd\\SimpleAdd.vm";
+        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\StackArithmetic\\StackTest\\StackTest.vm";
         String file2 = generateOutputFileName(file1);
 
         try {
