@@ -128,18 +128,51 @@ public class CodeWriter {
             writeBw("(GT_CONTINUE_" + gt + ")");
             gt++;
         }else if(command.equalsIgnoreCase("sub")){
-
+            writeBw("D=M-D");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("A=A-1");
+            writeBw("M=D");
+            writeBw("@SP");
+            writeBw("M=M-1");
         }else if(command.equalsIgnoreCase("neg")){
-
+            writeBw("D=-D");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            //一个operand省掉下面三句
+//            writeBw("A=A-1");
+            writeBw("M=D");
+//            writeBw("@SP");
+//            writeBw("M=M-1");
         }else if(command.equalsIgnoreCase("and")){
-
+            writeBw("D=D&M");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("A=A-1");
+            writeBw("M=D");
+            writeBw("@SP");
+            writeBw("M=M-1");
         }else if(command.equalsIgnoreCase("or")){
-
+            writeBw("D=D|M");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("A=A-1");
+            writeBw("M=D");
+            writeBw("@SP");
+            writeBw("M=M-1");
         }else if(command.equalsIgnoreCase("not")){
-
+            writeBw("D=!D");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            //一个operand省掉下面三句
+//            writeBw("A=A-1");
+            writeBw("M=D");
+//            writeBw("@SP");
+//            writeBw("M=M-1");
         }
 
     }
+
 
 //    private void twoArith(String command){
 //

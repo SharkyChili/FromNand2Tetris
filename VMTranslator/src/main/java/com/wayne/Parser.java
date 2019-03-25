@@ -98,6 +98,21 @@ public class Parser {
             } else if (getCommand().equalsIgnoreCase("gt")) {
                 writer.writeArithmetic(getCommand());
 
+            }else if (getCommand().equalsIgnoreCase("sub")) {
+                writer.writeArithmetic(getCommand());
+
+            }else if (getCommand().equalsIgnoreCase("neg")) {
+                writer.writeArithmetic(getCommand());
+
+            }else if (getCommand().equalsIgnoreCase("and")) {
+                writer.writeArithmetic(getCommand());
+
+            }else if (getCommand().equalsIgnoreCase("or")) {
+                writer.writeArithmetic(getCommand());
+
+            }else if (getCommand().equalsIgnoreCase("not")) {
+                writer.writeArithmetic(getCommand());
+
             }
 
 

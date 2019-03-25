@@ -451,6 +451,39 @@ A=M
 M=D
 @SP
 M=M+1
+//command sub
+@SP
+A=M-1
+D=M
+A=A-1
+D=M-D
+@SP
+A=M-1
+A=A-1
+M=D
+@SP
+M=M-1
+//command neg
+@SP
+A=M-1
+D=M
+A=A-1
+D=-D
+@SP
+A=M-1
+M=D
+//command and
+@SP
+A=M-1
+D=M
+A=A-1
+D=D&M
+@SP
+A=M-1
+A=A-1
+M=D
+@SP
+M=M-1
 //push constant 82
 //#get constant 82
 @82
@@ -461,3 +494,24 @@ A=M
 M=D
 @SP
 M=M+1
+//command or
+@SP
+A=M-1
+D=M
+A=A-1
+D=D|M
+@SP
+A=M-1
+A=A-1
+M=D
+@SP
+M=M-1
+//command not
+@SP
+A=M-1
+D=M
+A=A-1
+D=!D
+@SP
+A=M-1
+M=D
