@@ -80,39 +80,18 @@ public class Parser {
             if(strings.length>=1) setCommand(strings[0]);
             if(strings.length>=2) setArg1(strings[1]);
             if(strings.length>=3) setArg2(strings[2]);
-            //开始一顿ifelse了,先写，再看着优化吧
+            //开始一顿if else了,先写，再看着优化吧
             if(getCommand().equalsIgnoreCase("push")){
                 writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
 
 
 
-            } else if (getCommand().equalsIgnoreCase("add")) {
+            }else if("add".equalsIgnoreCase(getCommand())||"eq".equalsIgnoreCase(getCommand())||
+                    "lt".equalsIgnoreCase(getCommand())||"gt".equalsIgnoreCase(getCommand())||
+                    "sub".equalsIgnoreCase(getCommand())||"neg".equalsIgnoreCase(getCommand())||
+                    "and".equalsIgnoreCase(getCommand())||
+                    "or".equalsIgnoreCase(getCommand())||"not".equalsIgnoreCase(getCommand())){
                 writer.writeArithmetic(getCommand());
-
-            } else if (getCommand().equalsIgnoreCase("eq")) {
-                writer.writeArithmetic(getCommand());
-
-            } else if (getCommand().equalsIgnoreCase("lt")) {
-                writer.writeArithmetic(getCommand());
-
-            } else if (getCommand().equalsIgnoreCase("gt")) {
-                writer.writeArithmetic(getCommand());
-
-            }else if (getCommand().equalsIgnoreCase("sub")) {
-                writer.writeArithmetic(getCommand());
-
-            }else if (getCommand().equalsIgnoreCase("neg")) {
-                writer.writeArithmetic(getCommand());
-
-            }else if (getCommand().equalsIgnoreCase("and")) {
-                writer.writeArithmetic(getCommand());
-
-            }else if (getCommand().equalsIgnoreCase("or")) {
-                writer.writeArithmetic(getCommand());
-
-            }else if (getCommand().equalsIgnoreCase("not")) {
-                writer.writeArithmetic(getCommand());
-
             }
 
 
