@@ -84,7 +84,8 @@ public class Parser {
             if(getCommand().equalsIgnoreCase("push")){
                 writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
 
-
+            }else if(getCommand().equalsIgnoreCase("pop")){
+                writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
 
             }else if("add".equalsIgnoreCase(getCommand())||"eq".equalsIgnoreCase(getCommand())||
                     "lt".equalsIgnoreCase(getCommand())||"gt".equalsIgnoreCase(getCommand())||

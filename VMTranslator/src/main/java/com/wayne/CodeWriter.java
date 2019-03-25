@@ -32,7 +32,7 @@ public class CodeWriter {
     }
 
     public void writeArithmetic(String command) throws IOException {
-        writeBw("//command "  + command);
+        writeBw("//command "  + command + "----------------------------------");
         writeBw("@SP");
         writeBw("A=M-1");
         //两个操作数的处理
@@ -139,47 +139,111 @@ public class CodeWriter {
         writeBw("M=M-1");
     }
 
-//    private void twoArith(String command){
-//
-//    }
 
     public void writePushPop(String command, String segment, int index) throws IOException {
         if(command.equalsIgnoreCase("push")){
             //取到segment+index的值,D存储有效值
-            writeBw("//"+command+ " " + segment + " " + index);
-            getSegmentIndex(segment,index);
+            //push很方便，因为栈顶很容易拿到
+            writeBw("//"+command+ " " + segment + " " + index + "--------------------------");
+
+            //D存入segment对应的值
+            pushGetSegmentIndex(segment,index);
+            //将D的值推入栈内
             pushStack();
+        }else if (command.equalsIgnoreCase("pop")) {
+            //pop很麻烦，因为要做两次@，必然要用到D寄存器
+            writeBw("//"+command+ " " + segment + " " + index + "----------------------------");
+            //将segment对应地址存入R13
+            popGetSegmentIndex(segment,index);
+            //将栈顶值放入R13对应地址值内
+            popStack();
         }
     }
 
-    private void getSegmentIndex(String segment, int index) throws IOException {
+    //将segment对应地址存入R13
+    private void popGetSegmentIndex(String segment, int index) throws IOException {
+        //获取地址值
+        if(segment.equalsIgnoreCase("temp")){
+//            writeBw("@TEMP"+index);
+            writeBw("@"+(5+index));
+            writeBw("D=A");
+        }else {
+            if(segment.equalsIgnoreCase("local")){
+                writeBw("@LCL");
+            }else if(segment.equalsIgnoreCase("argument")){
+                writeBw("@ARG");
+            }else if(segment.equalsIgnoreCase("this")){
+                writeBw("@THIS");
+            }else if(segment.equalsIgnoreCase("that")){
+                writeBw("@THAT");
+            }
+            writeBw("D=M");
+            writeBw("@"+index);
+            writeBw("D=D+A");
+        }
+
+        //存入临时地址
+        writeBw("@R13");
+        writeBw("M=D");
+    }
+
+    //将栈顶值放入R13对应地址值内
+    private void popStack() throws IOException {
+        //开始处理stack，寄存器都可以用
+        writeBw("//#popStack");
+        //获取栈顶值
+        writeBw("@SP");
+        writeBw("A=M-1");
+        writeBw("D=M");
+        //SP-1
+        writeBw("@SP");
+        writeBw("M=M-1");
+        //赋值
+        writeBw("@13");
+        writeBw("A=M");
+        writeBw("M=D");
+    }
+
+    //D存入segment对应的值
+    private void pushGetSegmentIndex(String segment, int index) throws IOException {
         //取到segment+index的值,D存储有效值
         writeBw("//#get "+ segment + " " + index);
         if(segment.equalsIgnoreCase("constant")) {
             writeBw("@"+index);
             writeBw("D=A");
+        }else if(segment.equalsIgnoreCase("temp")){
+//            writeBw("@TEMP" + index);
+            writeBw("@"+(5+index));
+            writeBw("D=M");
         }else {
-            if(segment.equalsIgnoreCase("lcl")) {
-                writeBw("@Lcl");
+            if(segment.equalsIgnoreCase("local")) {
+                writeBw("@LCL");
+            }else if(segment.equalsIgnoreCase("argument")){
+                writeBw("@ARG");
+            }else if(segment.equalsIgnoreCase("this")){
+                writeBw("@THIS");
+            }else if(segment.equalsIgnoreCase("that")){
+                writeBw("@THAT");
             }
-            writeBw("D=A");
+            writeBw("D=M");
             writeBw("@" + index);
-            writeBw("D=D+A");
-            writeBw("A=D");
+            writeBw("A=D+A");
             writeBw("D=M");
         }
-
     }
 
+    //将D的值推入栈内
     private void pushStack() throws IOException {
         //开始处理stack，寄存器都可以用
         writeBw("//#pushStack");
+        //对栈顶赋值
         writeBw("@SP");
         writeBw("A=M");
         writeBw("M=D");
-        //对stack+1
+
         writeBw("@SP");
         writeBw("M=M+1");
+
     }
 
 }
