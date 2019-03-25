@@ -29,8 +29,8 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="94" column="61" lean-forward="true" selection-start-line="94" selection-start-column="61" selection-end-line="94" selection-end-column="61" />
+            <state relative-caret-position="567">
+              <caret line="97" column="61" lean-forward="true" selection-start-line="97" selection-start-column="61" selection-end-line="97" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#386#387#0" expanded="true" />
@@ -44,12 +44,12 @@
       <file leaf-file-name="CodeWriter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="66" column="20" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+            <state relative-caret-position="547">
+              <caret line="119" column="25" lean-forward="false" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#340#341#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
+                <element signature="e#371#372#0" expanded="true" />
                 <element signature="method#writeBw#0;class#CodeWriter#0" expanded="false" />
               </folding>
             </state>
@@ -178,7 +178,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/数据分析/git_push/FromNand2Tetris/VMTranslator/src/main/java/com/wayne/CodeWriter.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/数据分析/git_push/FromNand2Tetris/VMTranslator/src/main/java/com/wayne/Parser.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -315,12 +315,12 @@
       <workItem from="1552233617668" duration="4107000" />
       <workItem from="1552653345892" duration="31000" />
       <workItem from="1552653665440" duration="5000" />
-      <workItem from="1553421875864" duration="11474000" />
+      <workItem from="1553421875864" duration="13377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15617000" />
+    <option name="totallyTimeSpent" value="17520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="488" y="0" width="1595" height="1031" extended-state="0" />
@@ -403,8 +403,8 @@
           <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
             <element signature="method#writeBw#0;class#CodeWriter#0" expanded="false" />
           </folding>
         </state>
@@ -451,8 +451,8 @@
           <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
             <element signature="method#writeBw#0;class#CodeWriter#0" expanded="false" />
           </folding>
         </state>
@@ -486,8 +486,8 @@
           <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
             <element signature="method#writeBw#0;class#CodeWriter#0" expanded="false" />
           </folding>
         </state>
@@ -603,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="94" column="61" lean-forward="true" selection-start-line="94" selection-start-column="61" selection-end-line="94" selection-end-column="61" />
+        <state relative-caret-position="567">
+          <caret line="97" column="61" lean-forward="true" selection-start-line="97" selection-start-column="61" selection-end-line="97" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#386#387#0" expanded="true" />
@@ -616,12 +616,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="66" column="20" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+        <state relative-caret-position="547">
+          <caret line="119" column="25" lean-forward="false" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
             <element signature="method#writeBw#0;class#CodeWriter#0" expanded="false" />
           </folding>
         </state>

@@ -95,6 +95,9 @@ public class Parser {
             } else if (getCommand().equalsIgnoreCase("lt")) {
                 writer.writeArithmetic(getCommand());
 
+            } else if (getCommand().equalsIgnoreCase("gt")) {
+                writer.writeArithmetic(getCommand());
+
             }
 
 

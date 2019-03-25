@@ -8,6 +8,7 @@ public class CodeWriter {
 
     private static int eq = 0;
     private static int lt = 0;
+    private static int gt = 0;
 
     private BufferedWriter bufferedWriter;
 
@@ -36,7 +37,8 @@ public class CodeWriter {
         writeBw("A=M-1");
         writeBw("D=M");
         writeBw("A=A-1");
-        //前一个在D，后一个指针在A，内容在M
+        //先取出的在D，后取出的指针在A，内容在M
+        //M是先push进去的，D是后push进去的
         if (command.equalsIgnoreCase("add")){
             writeBw("M=M+D");
             writeBw("@SP");
@@ -70,15 +72,15 @@ public class CodeWriter {
             writeBw("(EQ_CONTINUE_" + eq + ")");
             eq++;
         }else if(command.equalsIgnoreCase("lt")){
-            writeBw("D=D-M");
+            writeBw("D=M-D");
             //测
             writeBw("@LT_"+lt);
-            writeBw("D;JLE");
+            writeBw("D;JLT");
             //假
             writeBw("@SP");
             writeBw("A=M-1");
             writeBw("A=A-1");
-            writeBw("M=-1");
+            writeBw("M=0");
             //跳到finally
             writeBw("@LT_FINALLY_"+lt);
             writeBw("0;JMP");
@@ -87,7 +89,7 @@ public class CodeWriter {
             writeBw("@SP");
             writeBw("A=M-1");
             writeBw("A=A-1");
-            writeBw("M=0");
+            writeBw("M=-1");
             //结尾
             writeBw("(LT_FINALLY_"+lt +")");
             writeBw("@SP");
@@ -98,7 +100,33 @@ public class CodeWriter {
             writeBw("(LT_CONTINUE_" + lt + ")");
             lt++;
         }else if(command.equalsIgnoreCase("gt")){
-
+            writeBw("D=M-D");
+            //测试
+            writeBw("@GT_"+gt);
+            writeBw("D;JGT");
+            //假
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("A=A-1");
+            writeBw("M=0");
+            //跳到finally
+            writeBw("@GT_FINALLY_"+gt);
+            writeBw("0;JMP");
+            //真
+            writeBw("(GT_" + gt + ")");
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("A=A-1");
+            writeBw("M=-1");
+            //结束
+            writeBw("(GT_FINALLY_"+ gt +")");
+            writeBw("@SP");
+            writeBw("M=M-1");
+            //跳下一句
+            writeBw("@GT_CONTINUE_" + gt);
+            writeBw("0;JMP");
+            writeBw("(GT_CONTINUE_" + gt + ")");
+            gt++;
         }else if(command.equalsIgnoreCase("sub")){
 
         }else if(command.equalsIgnoreCase("neg")){
