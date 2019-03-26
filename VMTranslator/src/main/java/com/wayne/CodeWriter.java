@@ -12,8 +12,11 @@ public class CodeWriter {
 
     private BufferedWriter bufferedWriter;
 
-    CodeWriter(BufferedWriter bufferedWriter){
+    private String fileName;
+
+    CodeWriter(BufferedWriter bufferedWriter,String fileName){
         this.bufferedWriter = bufferedWriter;
+        this.fileName = fileName;
     }
 
     private void writeBw(String str) throws IOException {
@@ -173,6 +176,9 @@ public class CodeWriter {
         }else if(segment.equalsIgnoreCase("pointer")&&"1".equalsIgnoreCase(String.valueOf(index))){
             writeBw("@THAT");
             writeBw("D=A");
+        }else if("static".equalsIgnoreCase(segment)){
+            writeBw("@"+ fileName +"." + index);
+            writeBw("D=A");
         }else {
             if(segment.equalsIgnoreCase("local")){
                 writeBw("@LCL");
@@ -226,6 +232,9 @@ public class CodeWriter {
             writeBw("D=M");
         }else if(segment.equalsIgnoreCase("pointer") && "1".equalsIgnoreCase(String.valueOf(index))){
             writeBw("@THAT");
+            writeBw("D=M");
+        }else if(segment.equalsIgnoreCase("static")){
+            writeBw("@"+ fileName +"."+ index);
             writeBw("D=M");
         }else {
             if(segment.equalsIgnoreCase("local")) {
