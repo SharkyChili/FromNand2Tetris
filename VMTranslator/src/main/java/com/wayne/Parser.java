@@ -81,10 +81,7 @@ public class Parser {
             if(strings.length>=2) setArg1(strings[1]);
             if(strings.length>=3) setArg2(strings[2]);
             //开始一顿if else了,先写，再看着优化吧
-            if(getCommand().equalsIgnoreCase("push")){
-                writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
-
-            }else if(getCommand().equalsIgnoreCase("pop")){
+            if(getCommand().equalsIgnoreCase("push") || "pop".equalsIgnoreCase(getCommand())){
                 writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
 
             }else if("add".equalsIgnoreCase(getCommand())||"eq".equalsIgnoreCase(getCommand())||
