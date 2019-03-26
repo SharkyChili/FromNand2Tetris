@@ -167,6 +167,12 @@ public class CodeWriter {
 //            writeBw("@TEMP"+index);
             writeBw("@"+(5+index));
             writeBw("D=A");
+        }else if(segment.equalsIgnoreCase("pointer")&&"0".equalsIgnoreCase(String.valueOf(index))){
+            writeBw("@THIS");
+            writeBw("D=A");
+        }else if(segment.equalsIgnoreCase("pointer")&&"1".equalsIgnoreCase(String.valueOf(index))){
+            writeBw("@THAT");
+            writeBw("D=A");
         }else {
             if(segment.equalsIgnoreCase("local")){
                 writeBw("@LCL");
@@ -214,6 +220,12 @@ public class CodeWriter {
         }else if(segment.equalsIgnoreCase("temp")){
 //            writeBw("@TEMP" + index);
             writeBw("@"+(5+index));
+            writeBw("D=M");
+        }else if(segment.equalsIgnoreCase("pointer") && "0".equalsIgnoreCase(String.valueOf(index))){
+            writeBw("@THIS");
+            writeBw("D=M");
+        }else if(segment.equalsIgnoreCase("pointer") && "1".equalsIgnoreCase(String.valueOf(index))){
+            writeBw("@THAT");
             writeBw("D=M");
         }else {
             if(segment.equalsIgnoreCase("local")) {
