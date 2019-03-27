@@ -93,7 +93,8 @@ public class Parser {
                     "and".equalsIgnoreCase(getCommand())||
                     "or".equalsIgnoreCase(getCommand())||"not".equalsIgnoreCase(getCommand())){
                 writer.writeArithmetic(getCommand());
-            }else if("label".equalsIgnoreCase(getCommand()) || "if-goto".equalsIgnoreCase(getCommand())){
+            }else if("label".equalsIgnoreCase(getCommand()) || "if-goto".equalsIgnoreCase(getCommand())||
+                    "goto".equalsIgnoreCase(getCommand())){
                 writer.writeProgramControll(getCommand(),getArg1());
             }
 

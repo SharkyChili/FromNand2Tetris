@@ -281,6 +281,9 @@ public class CodeWriter {
 
             writeBw("@"+arg1);
             writeBw("D;JGT");
+        }else if("goto".equalsIgnoreCase(command)){
+            writeBw("@"+arg1);
+            writeBw("0;JMP");
         }
     }
 }
