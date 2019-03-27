@@ -62,6 +62,9 @@ public class Parser {
     }
 
     private boolean preHandleLine(){
+        if(line.contains("//")){
+            line = line.split("//")[0];
+        }
         line = line.trim();
         if(line.startsWith("//")){
             return false;
@@ -90,6 +93,8 @@ public class Parser {
                     "and".equalsIgnoreCase(getCommand())||
                     "or".equalsIgnoreCase(getCommand())||"not".equalsIgnoreCase(getCommand())){
                 writer.writeArithmetic(getCommand());
+            }else if("label".equalsIgnoreCase(getCommand()) || "if-goto".equalsIgnoreCase(getCommand())){
+                writer.writeProgramControll(getCommand(),getArg1());
             }
 
 

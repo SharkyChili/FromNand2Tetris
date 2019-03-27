@@ -267,5 +267,21 @@ public class CodeWriter {
 
     }
 
+    public void writeProgramControll(String command, String arg1) throws IOException {
+        writeBw("// "+ command+ " " + arg1);
+        if("label".equalsIgnoreCase(command)){
+            writeBw("(" + arg1 + ")");
+        }else if("if-goto".equalsIgnoreCase(command)){
+            writeBw("@SP");
+            writeBw("A=M-1");
+            writeBw("D=M");
+
+            writeBw("@SP");
+            writeBw("M=M-1");
+
+            writeBw("@"+arg1);
+            writeBw("D;JGT");
+        }
+    }
 }
 
