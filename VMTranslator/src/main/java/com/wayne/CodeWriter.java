@@ -286,5 +286,154 @@ public class CodeWriter {
             writeBw("0;JMP");
         }
     }
+
+    public void writeFuction(String function, String arg1, Integer localvals) throws IOException {
+        writeBw("// fuction " + arg1 + " "  + localvals);
+        writeBw("("+ arg1 +")");
+        for (Integer i = 0; i < localvals; i++) {
+            writeBw("@SP");
+            writeBw("A=M");
+            writeBw("M=0");
+            writeBw("@SP");
+            writeBw("M=M+1");
+        }
+
+    }
+
+    public void writeReturn() throws IOException {
+        writeBw("// return ");
+        //endFrame = LCL         将LCL地址存入R13
+        writeBw("LCL");
+        writeBw("D=M");
+        writeBw("@R13");
+        writeBw("M=D");
+        //retAddr = *(endFrame - 5)        计算retAddr，存入R14
+        writeBw("@R13");
+        writeBw("D=M");
+        writeBw("@5");
+        writeBw("D=D-A");
+        writeBw("@R14");
+        writeBw("M=D");
+        //*ARG=pop()   ps:如果arg数目为0,可能会覆盖retAddr，所以前面要存入一个临时变量
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("D=M");
+
+        writeBw("@ARG");
+        writeBw("A=M");
+        writeBw("M=D");
+
+        writeBw("@SP");
+        writeBw("M=M-1");
+        //SP=ARG + 1
+        writeBw("@ARG");
+        writeBw("D=M + 1");
+        writeBw("@SP");
+        writeBw("M=D");
+        //resume THAT THAT = *(endFrame - 1)
+        writeBw("@R13");
+        writeBw("D=M");
+        writeBw("@1");
+        writeBw("A = D - A");
+        writeBw("D=M");
+
+        writeBw("@THAT");
+        writeBw("M=D");
+        //resume THIS THIS = *(endFrame - 2)
+        writeBw("@R13");
+        writeBw("D = M");
+        writeBw("@2");
+        writeBw("A = D - A");
+        writeBw("D=M");
+
+        writeBw("@THIS");
+        writeBw("M=D");
+        //resume ARG ARG = *(endFrame - 3)
+        writeBw("@13");
+        writeBw("D=M");
+        writeBw("@3");
+        writeBw("A=D - A");
+        writeBw("D=M");
+
+        writeBw("@ARG");
+        writeBw("M=D");
+        //resume LCL LCL = *(endFrame - 4)
+        writeBw("R13");
+        writeBw("D=M");
+        writeBw("@4");
+        writeBw("A=D-A");
+        writeBw("D=M");
+
+        writeBw("@LCL");
+        writeBw("M=D");
+        //goto retAddr
+        writeBw("@R14");
+        writeBw("0;JMP");
+    }
+
+    public void writeCall(String call, String arg1, Integer arg2) throws IOException {
+        writeBw("// call " + arg1 + " " + arg2 );
+        //push retAddr Lablel
+        //厉害，先@，再用A就能取到后面的值
+        writeBw("@"+fileName+"_calls_"+arg1);
+        writeBw("D=A");
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
+        //push LCL
+        writeBw("@LCL");
+        writeBw("D=M");
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
+        //push ARG
+        writeBw("@ARG");
+        writeBw("D=M");
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
+        //push THIS
+        writeBw("@THIS");
+        writeBw("D=M");
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
+        //push THAT
+        writeBw("@THAT");
+        writeBw("D=M");
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
+        //ARG = SP - 5 - nArgs
+        writeBw("@SP");
+        writeBw("D=M");
+        writeBw("@5");
+        writeBw("D=D-A");
+        writeBw("@"+arg2);
+        writeBw("D=D-A");
+        writeBw("@ARG");
+        writeBw("M=D");
+        //LCL = SP
+        writeBw("@SP");
+        writeBw("D=M");
+        writeBw("@LCL");
+        writeBw("M=D");
+        //goto fuctionName
+        writeBw("@"+arg1);
+        writeBw("0;JMP");
+        //(retAddr)
+        writeBw("(@"+ fileName + "_calls_"+ arg1+ ")");
+
+    }
 }
 

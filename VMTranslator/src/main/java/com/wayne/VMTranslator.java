@@ -10,7 +10,8 @@ public class VMTranslator {
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\MemoryAccess\\PointerTest\\PointerTest.vm";
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\MemoryAccess\\StaticTest\\StaticTest.vm";
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\ProgramFlow\\BasicLoop\\BasicLoop.vm";
-        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\ProgramFlow\\FibonacciSeries\\FibonacciSeries.vm";
+//        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\ProgramFlow\\FibonacciSeries\\FibonacciSeries.vm";
+        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\SimpleFunction\\SimpleFunction.vm";
         String file2 = generateOutputFileName(file1);
         String fileName = generateFileName(file1);
 

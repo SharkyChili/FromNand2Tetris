@@ -96,6 +96,12 @@ public class Parser {
             }else if("label".equalsIgnoreCase(getCommand()) || "if-goto".equalsIgnoreCase(getCommand())||
                     "goto".equalsIgnoreCase(getCommand())){
                 writer.writeProgramControll(getCommand(),getArg1());
+            }else if("function".equalsIgnoreCase(getCommand())){
+                writer.writeFuction("function", getArg1(), Integer.valueOf(getArg2()));
+            }else if("return".equalsIgnoreCase(getCommand())){
+                writer.writeReturn();
+            }else if("call".equalsIgnoreCase(getCommand())){
+                writer.writeCall("call", getArg1(),Integer.valueOf(getArg2()));
             }
 
 
