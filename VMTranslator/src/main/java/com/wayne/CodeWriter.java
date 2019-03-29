@@ -34,6 +34,10 @@ public class CodeWriter {
         }
     }
 
+    public void writeInit(){
+        //todo
+    }
+
     public void writeArithmetic(String command) throws IOException {
         writeBw("//command "  + command + "----------------------------------");
         writeBw("@SP");
@@ -375,7 +379,7 @@ public class CodeWriter {
     }
 
     public void writeCall(String call, String arg1, Integer arg2) throws IOException {
-        writeBw("// call " + arg1 + " " + arg2 );
+        writeBw("// call " + arg1 + " " + arg2 +"--------------------------" );
         //push retAddr Lablel
         //厉害，先@，再用A就能取到后面的值
         writeBw("@"+fileName+"_calls_"+arg1);
