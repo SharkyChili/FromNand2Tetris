@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="VMTranslator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VMTranslator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="390">
+              <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
               <folding>
                 <element signature="e#1982#1983#0" expanded="true" />
                 <element signature="e#2030#2031#0" expanded="true" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="242">
+              <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#386#387#0" expanded="true" />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeWriter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CodeWriter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="371" column="5" lean-forward="true" selection-start-line="371" selection-start-column="5" selection-end-line="371" selection-end-column="5" />
+            <state relative-caret-position="116">
+              <caret line="366" column="23" lean-forward="true" selection-start-line="366" selection-start-column="23" selection-end-line="366" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#close#0;class#CodeWriter#0" expanded="false" />
@@ -130,9 +130,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="684" />
-    <option name="y" value="21" />
-    <option name="width" value="1387" />
+    <option name="x" value="1049" />
+    <option name="y" value="29" />
+    <option name="width" value="1127" />
     <option name="height" value="978" />
   </component>
   <component name="ProjectView">
@@ -339,12 +339,12 @@
       <workItem from="1552233617668" duration="4107000" />
       <workItem from="1552653345892" duration="31000" />
       <workItem from="1552653665440" duration="5000" />
-      <workItem from="1553421875864" duration="39155000" />
+      <workItem from="1553421875864" duration="43616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43298000" />
+    <option name="totallyTimeSpent" value="47759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,7 +356,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="684" y="21" width="1387" height="978" extended-state="0" />
+    <frame x="1049" y="29" width="1127" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -665,10 +665,21 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding>
+            <element signature="e#1982#1983#0" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="23" />
+        <state relative-caret-position="242">
+          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#386#387#0" expanded="true" />
@@ -680,24 +691,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="371" column="5" lean-forward="true" selection-start-line="371" selection-start-column="5" selection-end-line="371" selection-end-column="5" />
+        <state relative-caret-position="116">
+          <caret line="366" column="23" lean-forward="true" selection-start-line="366" selection-start-column="23" selection-end-line="366" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#close#0;class#CodeWriter#0" expanded="false" />
             <element signature="method#sp_2_assign#0;class#CodeWriter#0" expanded="false" />
             <element signature="method#sp_1#0;class#CodeWriter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="e#1982#1983#0" expanded="true" />
-            <element signature="e#2030#2031#0" expanded="true" />
           </folding>
         </state>
       </provider>

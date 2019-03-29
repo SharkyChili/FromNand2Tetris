@@ -288,9 +288,10 @@ public class CodeWriter {
     }
 
     public void writeFuction(String function, String arg1, Integer localvals) throws IOException {
-        writeBw("// fuction " + arg1 + " "  + localvals);
+        writeBw("// fuction " + arg1 + " "  + localvals + "-------------------------");
         writeBw("("+ arg1 +")");
         for (Integer i = 0; i < localvals; i++) {
+            writeBw("// push constant 0");
             writeBw("@SP");
             writeBw("A=M");
             writeBw("M=0");
@@ -301,22 +302,23 @@ public class CodeWriter {
     }
 
     public void writeReturn() throws IOException {
-        writeBw("// return ");
+        writeBw("// return ----------------------------");
         //endFrame = LCL         将LCL地址存入R13
-        writeBw("LCL");
+        writeBw("@LCL");
         writeBw("D=M");
         writeBw("@R13");
         writeBw("M=D");
         //retAddr = *(endFrame - 5)        计算retAddr，存入R14
-        writeBw("@R13");
+        writeBw("@LCL");
         writeBw("D=M");
         writeBw("@5");
-        writeBw("D=D-A");
+        writeBw("A=D-A");
+        writeBw("D=M");
         writeBw("@R14");
         writeBw("M=D");
         //*ARG=pop()   ps:如果arg数目为0,可能会覆盖retAddr，所以前面要存入一个临时变量
         writeBw("@SP");
-        writeBw("A=M");
+        writeBw("A=M - 1");
         writeBw("D=M");
 
         writeBw("@ARG");
@@ -358,7 +360,7 @@ public class CodeWriter {
         writeBw("@ARG");
         writeBw("M=D");
         //resume LCL LCL = *(endFrame - 4)
-        writeBw("R13");
+        writeBw("@R13");
         writeBw("D=M");
         writeBw("@4");
         writeBw("A=D-A");
@@ -368,6 +370,7 @@ public class CodeWriter {
         writeBw("M=D");
         //goto retAddr
         writeBw("@R14");
+        writeBw("A=M");
         writeBw("0;JMP");
     }
 

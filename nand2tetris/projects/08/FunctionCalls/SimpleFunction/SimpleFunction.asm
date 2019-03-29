@@ -1,10 +1,12 @@
-// fuction SimpleFunction.test 2
+// fuction SimpleFunction.test 2-------------------------
 (SimpleFunction.test)
+// push constant 0
 @SP
 A=M
 M=0
 @SP
 M=M+1
+// push constant 0
 @SP
 A=M
 M=0
@@ -90,19 +92,20 @@ A=A-1
 M=M-D
 @SP
 M=M-1
-// return 
-LCL
+// return ----------------------------
+@LCL
 D=M
 @R13
 M=D
-@R13
+@LCL
 D=M
 @5
-D=D-A
+A=D-A
+D=M
 @R14
 M=D
 @SP
-A=M
+A=M - 1
 D=M
 @ARG
 A=M
@@ -134,7 +137,7 @@ A=D - A
 D=M
 @ARG
 M=D
-R13
+@R13
 D=M
 @4
 A=D-A
@@ -142,4 +145,5 @@ D=M
 @LCL
 M=D
 @R14
+A=M
 0;JMP
