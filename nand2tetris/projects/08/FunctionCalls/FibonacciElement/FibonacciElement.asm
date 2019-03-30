@@ -3,7 +3,7 @@ D=A
 @SP
 M=D
 // call Sys.init 0--------------------------
-@FibonacciElement_calls_Sys.init_0
+@god_calls_Sys.init_0
 D=A
 @SP
 A=M
@@ -52,7 +52,7 @@ D=M
 M=D
 @Sys.init
 0;JMP
-(FibonacciElement_calls_Sys.init_0)
+(god_calls_Sys.init_0)
 // fuction Main.fibonacci 0-------------------------
 (Main.fibonacci)
 //push argument 0--------------------------
@@ -213,7 +213,7 @@ M=M-D
 @SP
 M=M-1
 // call Main.fibonacci 1--------------------------
-@FibonacciElement_calls_Main.fibonacci_1
+@Main_calls_Main.fibonacci_1
 D=A
 @SP
 A=M
@@ -262,7 +262,7 @@ D=M
 M=D
 @Main.fibonacci
 0;JMP
-(FibonacciElement_calls_Main.fibonacci_1)
+(Main_calls_Main.fibonacci_1)
 //push argument 0--------------------------
 //#get argument 0
 @ARG
@@ -293,7 +293,7 @@ M=M-D
 @SP
 M=M-1
 // call Main.fibonacci 1--------------------------
-@FibonacciElement_calls_Main.fibonacci_2
+@Main_calls_Main.fibonacci_2
 D=A
 @SP
 A=M
@@ -342,7 +342,7 @@ D=M
 M=D
 @Main.fibonacci
 0;JMP
-(FibonacciElement_calls_Main.fibonacci_2)
+(Main_calls_Main.fibonacci_2)
 //command add----------------------------------
 @SP
 A=M-1
@@ -418,7 +418,7 @@ M=D
 @SP
 M=M+1
 // call Main.fibonacci 1--------------------------
-@FibonacciElement_calls_Main.fibonacci_3
+@Sys_calls_Main.fibonacci_3
 D=A
 @SP
 A=M
@@ -467,7 +467,7 @@ D=M
 M=D
 @Main.fibonacci
 0;JMP
-(FibonacciElement_calls_Main.fibonacci_3)
+(Sys_calls_Main.fibonacci_3)
 // label WHILE--------------------------------
 (WHILE)
 // goto WHILE--------------------------------

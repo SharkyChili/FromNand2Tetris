@@ -16,8 +16,8 @@
       <file leaf-file-name="VMTranslator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+            <state relative-caret-position="312">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,9 +103,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wayne/enum/Segment.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/nc/Vo.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/nc/DoSonThing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wayne/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java" />
       </list>
     </option>
   </component>
@@ -353,12 +353,12 @@
       <workItem from="1552233617668" duration="4107000" />
       <workItem from="1552653345892" duration="31000" />
       <workItem from="1552653665440" duration="5000" />
-      <workItem from="1553421875864" duration="63667000" />
+      <workItem from="1553421875864" duration="64573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67810000" />
+    <option name="totallyTimeSpent" value="68716000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        <state relative-caret-position="312">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

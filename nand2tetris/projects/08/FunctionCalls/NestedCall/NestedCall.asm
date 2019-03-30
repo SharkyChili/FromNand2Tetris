@@ -3,7 +3,7 @@ D=A
 @SP
 M=D
 // call Sys.init 0--------------------------
-@NestedCall_calls_Sys.init_0
+@god_calls_Sys.init_0
 D=A
 @SP
 A=M
@@ -52,7 +52,7 @@ D=M
 M=D
 @Sys.init
 0;JMP
-(NestedCall_calls_Sys.init_0)
+(god_calls_Sys.init_0)
 // fuction Sys.init 0-------------------------
 (Sys.init)
 //push constant 4000--------------------------
@@ -102,7 +102,7 @@ M=M-1
 A=M
 M=D
 // call Sys.main 0--------------------------
-@NestedCall_calls_Sys.main_1
+@Sys_calls_Sys.main_1
 D=A
 @SP
 A=M
@@ -151,7 +151,7 @@ D=M
 M=D
 @Sys.main
 0;JMP
-(NestedCall_calls_Sys.main_1)
+(Sys_calls_Sys.main_1)
 //pop temp 1----------------------------
 @6
 D=A
@@ -334,7 +334,7 @@ M=D
 @SP
 M=M+1
 // call Sys.add12 1--------------------------
-@NestedCall_calls_Sys.add12_2
+@Sys_calls_Sys.add12_2
 D=A
 @SP
 A=M
@@ -383,7 +383,7 @@ D=M
 M=D
 @Sys.add12
 0;JMP
-(NestedCall_calls_Sys.add12_2)
+(Sys_calls_Sys.add12_2)
 //pop temp 0----------------------------
 @5
 D=A
