@@ -14,11 +14,10 @@ public class CodeWriter {
 
     private BufferedWriter bufferedWriter;
 
-    private String fileName;
+    private String readerName;
 
-    CodeWriter(BufferedWriter bufferedWriter,String fileName){
+    CodeWriter(BufferedWriter bufferedWriter){
         this.bufferedWriter = bufferedWriter;
-        this.fileName = fileName;
     }
 
     private void writeBw(String str) throws IOException {
@@ -43,10 +42,11 @@ public class CodeWriter {
         writeBw("@SP");
         writeBw("M=D");
         //call Sys.init
-        writeCall("call" , "Sys.init", 0);
+        writeCall("call" , "Sys.init", 0, "god");
     }
 
-    public void writeArithmetic(String command) throws IOException {
+    public void writeArithmetic(String command, String readerName) throws IOException {
+        this.readerName = readerName;
         writeBw("//command "  + command + "----------------------------------");
         writeBw("@SP");
         writeBw("A=M-1");
@@ -155,7 +155,8 @@ public class CodeWriter {
     }
 
 
-    public void writePushPop(String command, String segment, int index) throws IOException {
+    public void writePushPop(String command, String segment, int index,String readerName) throws IOException {
+        this.readerName = readerName;
         if(command.equalsIgnoreCase("push")){
             //取到segment+index的值,D存储有效值
             //push很方便，因为栈顶很容易拿到
@@ -189,7 +190,7 @@ public class CodeWriter {
             writeBw("@THAT");
             writeBw("D=A");
         }else if("static".equalsIgnoreCase(segment)){
-            writeBw("@"+ fileName +"." + index);
+            writeBw("@"+ readerName +"." + index);
             writeBw("D=A");
         }else {
             if(segment.equalsIgnoreCase("local")){
@@ -246,7 +247,7 @@ public class CodeWriter {
             writeBw("@THAT");
             writeBw("D=M");
         }else if(segment.equalsIgnoreCase("static")){
-            writeBw("@"+ fileName +"."+ index);
+            writeBw("@"+ readerName +"."+ index);
             writeBw("D=M");
         }else {
             if(segment.equalsIgnoreCase("local")) {
@@ -265,7 +266,8 @@ public class CodeWriter {
         }
     }
 
-    public void writeProgramControll(String command, String arg1) throws IOException {
+    public void writeProgramControll(String command, String arg1,String readerName) throws IOException {
+        this.readerName = readerName;
         writeBw("// "+ command+ " " + arg1 + "--------------------------------");
         if("label".equalsIgnoreCase(command)){
             writeBw("(" + arg1 + ")");
@@ -286,7 +288,8 @@ public class CodeWriter {
         }
     }
 
-    public void writeFuction(String function, String arg1, Integer localvals) throws IOException {
+    public void writeFuction(String function, String arg1, Integer localvals,String readerName) throws IOException {
+        this.readerName = readerName;
         writeBw("// fuction " + arg1 + " "  + localvals + "-------------------------");
         writeBw("("+ arg1 +")");
         for (Integer i = 0; i < localvals; i++) {
@@ -300,7 +303,8 @@ public class CodeWriter {
 
     }
 
-    public void writeReturn() throws IOException {
+    public void writeReturn(String readerName) throws IOException {
+        this.readerName = readerName;
         writeBw("// return ----------------------------");
         //endFrame = LCL         将LCL地址存入R13
         writeBw("@LCL");
@@ -373,11 +377,12 @@ public class CodeWriter {
         writeBw("0;JMP");
     }
 
-    public void writeCall(String call, String arg1, Integer arg2) throws IOException {
+    public void writeCall(String call, String arg1, Integer arg2,String readerName) throws IOException {
+        this.readerName = readerName;
         writeBw("// call " + arg1 + " " + arg2 +"--------------------------" );
         //push retAddr Lablel
         //厉害，先@，再用A就能取到后面的值
-        writeBw("@"+fileName+"_calls_"+arg1 + "_" + callTimes);
+        writeBw("@"+readerName+"_calls_"+arg1 + "_" + callTimes);
         writeBw("D=A");
         pushDtoStack();
         //push LCL
@@ -414,7 +419,7 @@ public class CodeWriter {
         writeBw("@"+arg1);
         writeBw("0;JMP");
         //(retAddr)
-        writeBw("("+ fileName + "_calls_"+ arg1+ "_" + callTimes + ")");
+        writeBw("("+ readerName + "_calls_"+ arg1+ "_" + callTimes + ")");
         callTimes++;
     }
 

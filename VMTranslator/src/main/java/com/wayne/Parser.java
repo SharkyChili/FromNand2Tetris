@@ -80,7 +80,7 @@ public class Parser {
         return true;
     }
 
-    public void advance(CodeWriter writer) throws IOException {
+    public void advance(CodeWriter writer, String readerName) throws IOException {
         //todo 根据line解析出东西
         //预处理一下line
         if(preHandleLine()){
@@ -90,23 +90,23 @@ public class Parser {
             if(strings.length>=3) setArg2(strings[2]);
             //开始一顿if else了,先写，再看着优化吧
             if(getCommand().equalsIgnoreCase("push") || "pop".equalsIgnoreCase(getCommand())){
-                writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()));
+                writer.writePushPop(getCommand(),getArg1(),Integer.valueOf(getArg2()),readerName);
 
             }else if("add".equalsIgnoreCase(getCommand())||"eq".equalsIgnoreCase(getCommand())||
                     "lt".equalsIgnoreCase(getCommand())||"gt".equalsIgnoreCase(getCommand())||
                     "sub".equalsIgnoreCase(getCommand())||"neg".equalsIgnoreCase(getCommand())||
                     "and".equalsIgnoreCase(getCommand())||
                     "or".equalsIgnoreCase(getCommand())||"not".equalsIgnoreCase(getCommand())){
-                writer.writeArithmetic(getCommand());
+                writer.writeArithmetic(getCommand(),readerName);
             }else if("label".equalsIgnoreCase(getCommand()) || "if-goto".equalsIgnoreCase(getCommand())||
                     "goto".equalsIgnoreCase(getCommand())){
-                writer.writeProgramControll(getCommand(),getArg1());
+                writer.writeProgramControll(getCommand(),getArg1(),readerName);
             }else if("function".equalsIgnoreCase(getCommand())){
-                writer.writeFuction("function", getArg1(), Integer.valueOf(getArg2()));
+                writer.writeFuction("function", getArg1(), Integer.valueOf(getArg2()),readerName);
             }else if("return".equalsIgnoreCase(getCommand())){
-                writer.writeReturn();
+                writer.writeReturn(readerName);
             }else if("call".equalsIgnoreCase(getCommand())){
-                writer.writeCall("call", getArg1(),Integer.valueOf(getArg2()));
+                writer.writeCall("call", getArg1(),Integer.valueOf(getArg2()),readerName);
             }
 
 

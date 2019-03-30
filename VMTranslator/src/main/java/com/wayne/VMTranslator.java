@@ -24,13 +24,13 @@ public class VMTranslator {
 
         String outputFilePath = generateOutputFilePath(file1);
         String fileSimpleName = generateFileSimpleName(file1);
-        CodeWriter writer = new CodeWriter(new BufferedWriter(new FileWriter(outputFilePath)),fileSimpleName);
+        CodeWriter writer = new CodeWriter(new BufferedWriter(new FileWriter(outputFilePath)));
         writerInit(file1,writer);
         for (File file : getFileList(file1)) {
             if(file.getAbsolutePath().endsWith(".vm")){
                 Parser reader = new Parser(new BufferedReader(new FileReader(file.getAbsolutePath())));
                 while(reader.hasMoreCommands()){
-                    reader.advance(writer);
+                    reader.advance(writer,generateFileSimpleName(file.getAbsolutePath()));
                 }
                 reader.close();
             }
