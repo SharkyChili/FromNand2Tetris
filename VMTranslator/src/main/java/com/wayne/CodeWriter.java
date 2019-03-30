@@ -266,7 +266,7 @@ public class CodeWriter {
     }
 
     public void writeProgramControll(String command, String arg1) throws IOException {
-        writeBw("// "+ command+ " " + arg1);
+        writeBw("// "+ command+ " " + arg1 + "--------------------------------");
         if("label".equalsIgnoreCase(command)){
             writeBw("(" + arg1 + ")");
         }else if("if-goto".equalsIgnoreCase(command)){
@@ -278,7 +278,8 @@ public class CodeWriter {
             writeBw("M=M-1");
 
             writeBw("@"+arg1);
-            writeBw("D;JGT");
+            //这里是个大bug，因为前面比较的结果，-1代表真，0代表假，所以不要用JGT
+            writeBw("D;JNE");
         }else if("goto".equalsIgnoreCase(command)){
             writeBw("@"+arg1);
             writeBw("0;JMP");

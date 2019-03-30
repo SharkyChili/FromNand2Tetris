@@ -101,18 +101,18 @@ M=M-1
 @LT_CONTINUE_0
 0;JMP
 (LT_CONTINUE_0)
-// if-goto IF_TRUE
+// if-goto IF_TRUE--------------------------------
 @SP
 A=M-1
 D=M
 @SP
 M=M-1
 @IF_TRUE
-D;JGT
-// goto IF_FALSE
+D;JNE
+// goto IF_FALSE--------------------------------
 @IF_FALSE
 0;JMP
-// label IF_TRUE
+// label IF_TRUE--------------------------------
 (IF_TRUE)
 //push argument 0--------------------------
 //#get argument 0
@@ -181,7 +181,7 @@ M=D
 @R14
 A=M
 0;JMP
-// label IF_FALSE
+// label IF_FALSE--------------------------------
 (IF_FALSE)
 //push argument 0--------------------------
 //#get argument 0
@@ -468,8 +468,8 @@ M=D
 @Main.fibonacci
 0;JMP
 (FibonacciElement_calls_Main.fibonacci_3)
-// label WHILE
+// label WHILE--------------------------------
 (WHILE)
-// goto WHILE
+// goto WHILE--------------------------------
 @WHILE
 0;JMP

@@ -166,9 +166,9 @@ M=M-1
 @13
 A=M
 M=D
-// label LOOP
+// label LOOP--------------------------------
 (LOOP)
-// goto LOOP
+// goto LOOP--------------------------------
 @LOOP
 0;JMP
 // fuction Sys.main 5-------------------------

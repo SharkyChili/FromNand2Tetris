@@ -2,7 +2,6 @@
 //#get constant 0
 @0
 D=A
-//#pushStack
 @SP
 A=M
 M=D
@@ -33,7 +32,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -46,7 +44,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -83,7 +80,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -93,7 +89,6 @@ M=M+1
 //#get constant 1
 @1
 D=A
-//#pushStack
 @SP
 A=M
 M=D
@@ -130,7 +125,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -151,7 +145,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
