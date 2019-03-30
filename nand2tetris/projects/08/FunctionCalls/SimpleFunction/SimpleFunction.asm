@@ -19,7 +19,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -32,7 +31,6 @@ D=M
 @1
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -57,7 +55,6 @@ D=M
 @0
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D
@@ -78,7 +75,6 @@ D=M
 @1
 A=D+A
 D=M
-//#pushStack
 @SP
 A=M
 M=D

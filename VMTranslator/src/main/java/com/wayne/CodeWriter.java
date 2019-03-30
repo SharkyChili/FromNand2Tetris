@@ -10,6 +10,8 @@ public class CodeWriter {
     private static int lt = 0;
     private static int gt = 0;
 
+    private static int callTimes = 0;
+
     private BufferedWriter bufferedWriter;
 
     private String fileName;
@@ -34,8 +36,14 @@ public class CodeWriter {
         }
     }
 
-    public void writeInit(){
+    public void writeInit() throws IOException {
         //todo
+        writeBw("@256");
+        writeBw("D=A");
+        writeBw("@SP");
+        writeBw("M=D");
+        //call Sys.init
+        writeCall("call" , "Sys.init", 0);
     }
 
     public void writeArithmetic(String command) throws IOException {
@@ -156,7 +164,7 @@ public class CodeWriter {
             //D存入segment对应的值
             pushGetSegmentIndex(segment,index);
             //将D的值推入栈内
-            pushStack();
+            pushDtoStack();
         }else if (command.equalsIgnoreCase("pop")) {
             //pop很麻烦，因为要做两次@，必然要用到D寄存器
             writeBw("//"+command+ " " + segment + " " + index + "----------------------------");
@@ -255,20 +263,6 @@ public class CodeWriter {
             writeBw("A=D+A");
             writeBw("D=M");
         }
-    }
-
-    //将D的值推入栈内
-    private void pushStack() throws IOException {
-        //开始处理stack，寄存器都可以用
-        writeBw("//#pushStack");
-        //对栈顶赋值
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-
-        writeBw("@SP");
-        writeBw("M=M+1");
-
     }
 
     public void writeProgramControll(String command, String arg1) throws IOException {
@@ -382,45 +376,25 @@ public class CodeWriter {
         writeBw("// call " + arg1 + " " + arg2 +"--------------------------" );
         //push retAddr Lablel
         //厉害，先@，再用A就能取到后面的值
-        writeBw("@"+fileName+"_calls_"+arg1);
+        writeBw("@"+fileName+"_calls_"+arg1 + "_" + callTimes);
         writeBw("D=A");
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-        writeBw("@SP");
-        writeBw("M=M+1");
+        pushDtoStack();
         //push LCL
         writeBw("@LCL");
         writeBw("D=M");
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-        writeBw("@SP");
-        writeBw("M=M+1");
+        pushDtoStack();
         //push ARG
         writeBw("@ARG");
         writeBw("D=M");
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-        writeBw("@SP");
-        writeBw("M=M+1");
+        pushDtoStack();
         //push THIS
         writeBw("@THIS");
         writeBw("D=M");
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-        writeBw("@SP");
-        writeBw("M=M+1");
+        pushDtoStack();
         //push THAT
         writeBw("@THAT");
         writeBw("D=M");
-        writeBw("@SP");
-        writeBw("A=M");
-        writeBw("M=D");
-        writeBw("@SP");
-        writeBw("M=M+1");
+        pushDtoStack();
         //ARG = SP - 5 - nArgs
         writeBw("@SP");
         writeBw("D=M");
@@ -439,8 +413,16 @@ public class CodeWriter {
         writeBw("@"+arg1);
         writeBw("0;JMP");
         //(retAddr)
-        writeBw("(@"+ fileName + "_calls_"+ arg1+ ")");
+        writeBw("("+ fileName + "_calls_"+ arg1+ "_" + callTimes + ")");
+        callTimes++;
+    }
 
+    private void pushDtoStack() throws IOException {
+        writeBw("@SP");
+        writeBw("A=M");
+        writeBw("M=D");
+        writeBw("@SP");
+        writeBw("M=M+1");
     }
 }
 

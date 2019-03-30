@@ -15,8 +15,10 @@ public class VMTranslator {
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\07\\MemoryAccess\\StaticTest\\StaticTest.vm";
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\ProgramFlow\\BasicLoop\\BasicLoop.vm";
 //        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\ProgramFlow\\FibonacciSeries\\FibonacciSeries.vm";
-        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\SimpleFunction\\SimpleFunction.vm";
-//        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\NestedCall\\Sys.vm";
+//        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\SimpleFunction\\SimpleFunction.vm";
+        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\NestedCall";
+//        String file1 = "D:\\数据分析\\git_push\\FromNand2Tetris\\nand2tetris\\projects\\08\\FunctionCalls\\FibonacciElement";
+
 
 
         String outputFilePath = generateOutputFilePath(file1);
@@ -35,7 +37,7 @@ public class VMTranslator {
         writer.close();
     }
 
-    private static void writerInit(String file1,CodeWriter writer) {
+    private static void writerInit(String file1,CodeWriter writer) throws IOException {
         if(!new File(file1).isDirectory()){
             //do nothing
         }else {
@@ -62,7 +64,7 @@ public class VMTranslator {
         }else {
             String[] strings = file1.split("\\\\");
             String name = strings[strings.length - 1];
-            return file1 + "\\\\" + name + ".vm";
+            return file1 + "\\\\" + name + ".asm";
         }
     }
 

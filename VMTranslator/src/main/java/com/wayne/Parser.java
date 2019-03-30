@@ -63,7 +63,12 @@ public class Parser {
 
     private boolean preHandleLine(){
         if(line.contains("//")){
-            line = line.split("//")[0];
+            String[] strings = line.split("//");
+            if(null == strings || strings.length == 0){
+                return false;
+            }else {
+                line =  line.split("//")[0];
+            }
         }
         line = line.trim();
         if(line.startsWith("//")){

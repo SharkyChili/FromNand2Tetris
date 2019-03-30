@@ -1,0 +1,475 @@
+@256
+D=A
+@SP
+M=D
+// call Sys.init 0--------------------------
+@FibonacciElement_calls_Sys.init_0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+D=M
+@5
+D=D-A
+@0
+D=D-A
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Sys.init
+0;JMP
+(FibonacciElement_calls_Sys.init_0)
+// fuction Main.fibonacci 0-------------------------
+(Main.fibonacci)
+//push argument 0--------------------------
+//#get argument 0
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 2--------------------------
+//#get constant 2
+@2
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//command lt----------------------------------
+@SP
+A=M-1
+D=M
+A=A-1
+D=M-D
+@LT_0
+D;JLT
+@SP
+A=M-1
+A=A-1
+M=0
+@LT_FINALLY_0
+0;JMP
+(LT_0)
+@SP
+A=M-1
+A=A-1
+M=-1
+(LT_FINALLY_0)
+@SP
+M=M-1
+@LT_CONTINUE_0
+0;JMP
+(LT_CONTINUE_0)
+// if-goto IF_TRUE
+@SP
+A=M-1
+D=M
+@SP
+M=M-1
+@IF_TRUE
+D;JGT
+// goto IF_FALSE
+@IF_FALSE
+0;JMP
+// label IF_TRUE
+(IF_TRUE)
+//push argument 0--------------------------
+//#get argument 0
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// return ----------------------------
+@LCL
+D=M
+@R13
+M=D
+@LCL
+D=M
+@5
+A=D-A
+D=M
+@R14
+M=D
+@SP
+A=M - 1
+D=M
+@ARG
+A=M
+M=D
+@SP
+M=M-1
+@ARG
+D=M + 1
+@SP
+M=D
+@R13
+D=M
+@1
+A = D - A
+D=M
+@THAT
+M=D
+@R13
+D = M
+@2
+A = D - A
+D=M
+@THIS
+M=D
+@13
+D=M
+@3
+A=D - A
+D=M
+@ARG
+M=D
+@R13
+D=M
+@4
+A=D-A
+D=M
+@LCL
+M=D
+@R14
+A=M
+0;JMP
+// label IF_FALSE
+(IF_FALSE)
+//push argument 0--------------------------
+//#get argument 0
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 2--------------------------
+//#get constant 2
+@2
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//command sub----------------------------------
+@SP
+A=M-1
+D=M
+A=A-1
+M=M-D
+@SP
+M=M-1
+// call Main.fibonacci 1--------------------------
+@FibonacciElement_calls_Main.fibonacci_1
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+D=M
+@5
+D=D-A
+@1
+D=D-A
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Main.fibonacci
+0;JMP
+(FibonacciElement_calls_Main.fibonacci_1)
+//push argument 0--------------------------
+//#get argument 0
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 1--------------------------
+//#get constant 1
+@1
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//command sub----------------------------------
+@SP
+A=M-1
+D=M
+A=A-1
+M=M-D
+@SP
+M=M-1
+// call Main.fibonacci 1--------------------------
+@FibonacciElement_calls_Main.fibonacci_2
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+D=M
+@5
+D=D-A
+@1
+D=D-A
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Main.fibonacci
+0;JMP
+(FibonacciElement_calls_Main.fibonacci_2)
+//command add----------------------------------
+@SP
+A=M-1
+D=M
+A=A-1
+M=M+D
+@SP
+M=M-1
+// return ----------------------------
+@LCL
+D=M
+@R13
+M=D
+@LCL
+D=M
+@5
+A=D-A
+D=M
+@R14
+M=D
+@SP
+A=M - 1
+D=M
+@ARG
+A=M
+M=D
+@SP
+M=M-1
+@ARG
+D=M + 1
+@SP
+M=D
+@R13
+D=M
+@1
+A = D - A
+D=M
+@THAT
+M=D
+@R13
+D = M
+@2
+A = D - A
+D=M
+@THIS
+M=D
+@13
+D=M
+@3
+A=D - A
+D=M
+@ARG
+M=D
+@R13
+D=M
+@4
+A=D-A
+D=M
+@LCL
+M=D
+@R14
+A=M
+0;JMP
+// fuction Sys.init 0-------------------------
+(Sys.init)
+//push constant 4--------------------------
+//#get constant 4
+@4
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// call Main.fibonacci 1--------------------------
+@FibonacciElement_calls_Main.fibonacci_3
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@LCL
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@ARG
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THIS
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@THAT
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+D=M
+@5
+D=D-A
+@1
+D=D-A
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Main.fibonacci
+0;JMP
+(FibonacciElement_calls_Main.fibonacci_3)
+// label WHILE
+(WHILE)
+// goto WHILE
+@WHILE
+0;JMP
