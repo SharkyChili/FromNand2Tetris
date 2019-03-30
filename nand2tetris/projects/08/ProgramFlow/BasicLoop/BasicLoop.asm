@@ -23,7 +23,7 @@ M=M-1
 @13
 A=M
 M=D
-// label LOOP_START
+// label LOOP_START--------------------------------
 (LOOP_START)
 //push argument 0--------------------------
 //#get argument 0
@@ -130,14 +130,14 @@ A=M
 M=D
 @SP
 M=M+1
-// if-goto LOOP_START
+// if-goto LOOP_START--------------------------------
 @SP
 A=M-1
 D=M
 @SP
 M=M-1
 @LOOP_START
-D;JGT
+D;JNE
 //push local 0--------------------------
 //#get local 0
 @LCL

@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="VMTranslator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VMTranslator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="286">
+              <caret line="20" column="116" lean-forward="true" selection-start-line="20" selection-start-column="116" selection-end-line="20" selection-end-column="116" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeWriter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CodeWriter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
@@ -81,6 +81,7 @@
       <find>calls</find>
       <find>pushStack</find>
       <find>goto</find>
+      <find>if-goto</find>
     </findStrings>
     <replaceStrings>
       <replace>SP</replace>
@@ -102,8 +103,8 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/nc/Vo.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/nc/DoSonThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wayne/Parser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java" />
       </list>
     </option>
   </component>
@@ -139,9 +140,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="693" />
+    <option name="x" value="453" />
     <option name="y" value="13" />
-    <option name="width" value="1232" />
+    <option name="width" value="1472" />
     <option name="height" value="995" />
   </component>
   <component name="ProjectView">
@@ -351,12 +352,12 @@
       <workItem from="1552233617668" duration="4107000" />
       <workItem from="1552653345892" duration="31000" />
       <workItem from="1552653665440" duration="5000" />
-      <workItem from="1553421875864" duration="60921000" />
+      <workItem from="1553421875864" duration="61559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65064000" />
+    <option name="totallyTimeSpent" value="65702000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -368,7 +369,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="693" y="13" width="1232" height="995" extended-state="0" />
+    <frame x="453" y="13" width="1472" height="995" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -454,13 +455,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java</url>
-          <line>30</line>
+          <line>31</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java</url>
-          <line>29</line>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
@@ -733,16 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/CodeWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -756,6 +747,16 @@
             <element signature="method#popGetSegmentIndex#0;class#CodeWriter#0" expanded="false" />
             <element signature="method#popStack#0;class#CodeWriter#0" expanded="false" />
             <element signature="method#pushGetSegmentIndex#0;class#CodeWriter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wayne/VMTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="20" column="116" lean-forward="true" selection-start-line="20" selection-start-column="116" selection-end-line="20" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

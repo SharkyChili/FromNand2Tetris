@@ -119,7 +119,7 @@ M=M-1
 @13
 A=M
 M=D
-// label MAIN_LOOP_START
+// label MAIN_LOOP_START--------------------------------
 (MAIN_LOOP_START)
 //push argument 0--------------------------
 //#get argument 0
@@ -133,18 +133,18 @@ A=M
 M=D
 @SP
 M=M+1
-// if-goto COMPUTE_ELEMENT
+// if-goto COMPUTE_ELEMENT--------------------------------
 @SP
 A=M-1
 D=M
 @SP
 M=M-1
 @COMPUTE_ELEMENT
-D;JGT
-// goto END_PROGRAM
+D;JNE
+// goto END_PROGRAM--------------------------------
 @END_PROGRAM
 0;JMP
-// label COMPUTE_ELEMENT
+// label COMPUTE_ELEMENT--------------------------------
 (COMPUTE_ELEMENT)
 //push that 0--------------------------
 //#get that 0
@@ -279,8 +279,8 @@ M=M-1
 @13
 A=M
 M=D
-// goto MAIN_LOOP_START
+// goto MAIN_LOOP_START--------------------------------
 @MAIN_LOOP_START
 0;JMP
-// label END_PROGRAM
+// label END_PROGRAM--------------------------------
 (END_PROGRAM)
