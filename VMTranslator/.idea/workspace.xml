@@ -140,8 +140,8 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="600" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="585" />
     <option name="y" value="13" />
     <option name="width" value="1325" />
     <option name="height" value="995" />
@@ -353,12 +353,12 @@
       <workItem from="1552233617668" duration="4107000" />
       <workItem from="1552653345892" duration="31000" />
       <workItem from="1552653665440" duration="5000" />
-      <workItem from="1553421875864" duration="64573000" />
+      <workItem from="1553421875864" duration="64981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68716000" />
+    <option name="totallyTimeSpent" value="69124000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -370,7 +370,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="600" y="13" width="1325" height="995" extended-state="0" />
+    <frame x="585" y="13" width="1325" height="995" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
