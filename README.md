@@ -10,6 +10,10 @@
 
 Jack类似java，是一种运行在虚拟机上的语言，如图。
 
+![](C:\Users\wayne\AppData\Roaming\Typora\typora-user-images\1554433778424.png)
+
+
+
 ![](https://github.com/fw1036994377/FromNand2Tetris/blob/master/img/memorysegment.jpg?raw=true)
 
 
